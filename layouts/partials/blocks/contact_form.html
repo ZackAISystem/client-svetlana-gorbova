@@ -36,34 +36,16 @@
 {{ if and (eq $ctaText "") (isset $p "contact_cta_text") }}{{ $ctaText = $p.contact_cta_text }}{{ end }}
 {{ if eq $ctaText "" }}{{ $ctaText = "Arrange a viewing" }}{{ end }}
 
-{{/* CTA target (no form submit): prefer client WhatsApp -> tel -> mail */}}
-{{ $c := site.Data.client }}
+{{/* ✅ WhatsApp CTA (forced): Svetlana phone + dynamic project name + page link (+ anti-cache) */}}
+{{ $waPhone := "971558869299" }}
 
-{{ $ctaHref := "" }}
-{{ if and $c (isset $c "whatsapp_link") (ne (trim $c.whatsapp_link " \n\r\t") "") }}
-  {{ $ctaHref = $c.whatsapp_link }}
-{{ else if and $c (isset $c "phone_link") (ne (trim $c.phone_link " \n\r\t") "") }}
-  {{ $ctaHref = printf "tel:%s" (replace (trim $c.phone_link " \n\r\t") " " "") }}
-{{ else if and $c (isset $c "email") (ne (trim $c.email " \n\r\t") "") }}
-  {{ $ctaHref = printf "mailto:%s" (trim $c.email " \n\r\t") }}
-{{ else }}
-  {{ $ctaHref = "#contacts" }}
-{{ end }}
-
-{{/* optional: prefill whatsapp message with project name */}}
 {{ $projectName := "" }}
 {{ if and (isset $p "project_name") $p.project_name }}{{ $projectName = $p.project_name }}{{ end }}
 {{ if and (eq $projectName "") (ne $page.Title "") }}{{ $projectName = $page.Title }}{{ end }}
+{{ if eq $projectName "" }}{{ $projectName = "this project" }}{{ end }}
 
-{{ $ctaHrefFinal := $ctaHref }}
-{{ if and (ne $ctaHref "") (in $ctaHref "wa.me") (ne (trim $projectName " \n\r\t") "") }}
-  {{ $msg := printf "Hi! I’m interested in %s. Please contact me." $projectName | urlquery }}
-  {{ if in $ctaHref "?" }}
-    {{ $ctaHrefFinal = printf "%s&text=%s" $ctaHref $msg }}
-  {{ else }}
-    {{ $ctaHrefFinal = printf "%s?text=%s" $ctaHref $msg }}
-  {{ end }}
-{{ end }}
+{{ $waText := printf "Hello, I am interested in %s. %s Please contact me." $projectName $page.Permalink }}
+{{ $ctaHrefFinal := printf "https://wa.me/%s?text=%s&t=%d" $waPhone ($waText | urlquery) now.Unix }}
 
 {{/* Anchor compatibility: keep id="contact" but also support #contacts */}}
 <span id="contacts" aria-hidden="true"></span>

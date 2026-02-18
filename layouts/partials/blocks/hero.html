@@ -32,6 +32,11 @@
 {{ if and (eq $cta "") (isset $p "hero_cta_text") }}{{ $cta = $p.hero_cta_text }}{{ end }}
 {{ if eq $cta "" }}{{ $cta = "Arrange a viewing" }}{{ end }}
 
+{{/* WhatsApp CTA (dynamic): title + page link (+ anti-cache) */}}
+{{ $waPhone := "971558869299" }}
+{{ $waText := printf "Hello, I am interested in %s. %s Please contact me." $title $page.Permalink }}
+{{ $waLink := printf "https://wa.me/%s?text=%s&t=%d" $waPhone ($waText | urlquery) now.Unix }}
+
 {{/* facts: index.md -> json */}}
 {{ $fact1Label := "" }}{{ $fact1Value := "" }}
 {{ $fact2Label := "" }}{{ $fact2Value := "" }}
@@ -58,7 +63,7 @@
     </div>
   </div>
 
-  <a class="zf-hero__cta zf-hero__cta--floating" href="#contacts">
+  <a class="zf-hero__cta zf-hero__cta--floating" href="{{ $waLink }}" target="_blank" rel="noopener">
     {{ $cta }}
   </a>
 

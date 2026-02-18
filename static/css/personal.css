@@ -1,3 +1,4 @@
+
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
 
@@ -8,18 +9,18 @@ body{
   color:#111;
 }
 
-/* HERO background */
+/* HERO — full screen editorial dark gradient */
 .personal-hero {
-  min-height: 90vh; /* обрезаем снизу ~10%, чтобы был намёк на следующий блок */
+  min-height: 100vh;
   background: linear-gradient(
-    0deg,
-    #050506 0%,    /* низ — самый тёмный */
-    #3f3f3f 45%,
-    #6f6f6f 100%   /* верх — светлее */
+    180deg,
+    #0C0C0A 0%,
+    #252525 46%,
+    #181816 100%
   );
-  color: #fff;
+  color: #ffffff;
+  position: relative;
   overflow: hidden;
-  position: relative; /* для brand и socials */
 }
 
 /* BRAND (LOGO + TEXT) */
@@ -95,22 +96,6 @@ body{
   justify-content: center;
   padding: 0 40px;
   overflow: hidden;
-}
-
-/* КРУГ ЗА ФОТО */
-.hero-photo-bg {
-  position: absolute;
-  width: 465px;
-  height: 465px;
-  border-radius: 50%;
-  background: #686868;
-
-  /* позиционирование круга */
-  left: 62%;
-  bottom: 160px;
-  transform: translateX(-50%);
-
-  z-index: 1;
 }
 
 /* ФОТО */
@@ -219,6 +204,7 @@ body{
 @media (max-width: 1024px) {
   .personal-hero {
     min-height: auto;
+    overflow-x: hidden; /* вместо clip — стабильнее на мобилках */
   }
 
   .hero-grid {
@@ -249,37 +235,39 @@ body{
 
   /* ФОТО — ещё ниже, ближе к имени */
   .hero-photo {
-    padding: 72px 24px 0;     /* было 56px → опускаем фото */
-    justify-content: center;
+    padding: 72px 0 0;
+    overflow-x: hidden; /* чтобы ничего не “распирало” страницу */
   }
 
+  /* КЛЮЧЕВОЕ: НЕ 100vw, а 100% */
   .hero-photo img {
-    width: min(420px, 100%);
-    max-height: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     transform: none;
-    margin-bottom: -26px;     /* было -16px → ещё ближе к имени */
+    display: block;
   }
 
   /* КОНТЕНТ */
   .hero-content {
-    padding: 26px 24px 52px;  /* компактнее */
+    padding: 26px 24px 52px; /* компактнее */
     align-items: center;
     text-align: center;
   }
 
   /* МОБИЛЬ */
-.hero-title {
-  font-size: 42px;
-  line-height: 1.0;
-  white-space: nowrap;   /* строго одна строка */
-  margin: 0 0 14px;
-}
+  .hero-title {
+    font-size: 42px;
+    line-height: 1.0;
+    white-space: nowrap; /* строго одна строка */
+    margin: 0 0 14px;
+  }
 
-/* “умный” пробел */
-.hero-space {
-  display: inline-block;
-  width: 0.35em;         /* визуально как нормальный пробел */
-}
+  /* “умный” пробел */
+  .hero-space {
+    display: inline-block;
+    width: 0.35em; /* визуально как нормальный пробел */
+  }
 
   .hero-role {
     margin: 0 0 20px;
@@ -287,42 +275,39 @@ body{
   }
 
   /* КНОПКИ — раскладка: Investor сверху, Real Estate + Homebuyer снизу */
-  .hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:14px;
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
   }
 
-  .hero-actions .hero-btn{
-    height:52px;
-    padding:0 28px;
-    font-size:14px;
-    border-radius:999px;
+  .hero-actions .hero-btn {
+    height: 52px;
+    padding: 0 28px;
+    font-size: 14px;
+    border-radius: 999px;
   }
 
-  /* 1) Investor — у тебя это 2-я кнопка в HTML:
-     Real Estate Agent (1), Investor (2), Homebuyer (3)
-     → делаем её первой строкой и ставим order:1
-  */
-  .hero-actions .hero-btn:nth-child(2){
-    order:1;
-    flex:0 0 100%;
-    max-width:280px;
+  /* 1) Investor — 2-я кнопка */
+  .hero-actions .hero-btn:nth-child(2) {
+    order: 1;
+    flex: 0 0 100%;
+    max-width: 280px;
   }
 
-  /* 2) Real Estate Agent — 1-я кнопка → вниз слева */
-  .hero-actions .hero-btn:nth-child(1){
-    order:2;
-    flex:0 0 calc(50% - 7px);
-    max-width:220px;
+  /* 2) Real Estate Agent — 1-я кнопка */
+  .hero-actions .hero-btn:nth-child(1) {
+    order: 2;
+    flex: 0 0 calc(50% - 7px);
+    max-width: 220px;
   }
 
-  /* 3) Homebuyer — 3-я кнопка → вниз справа */
-  .hero-actions .hero-btn:nth-child(3){
-    order:3;
-    flex:0 0 calc(50% - 7px);
-    max-width:220px;
+  /* 3) Homebuyer — 3-я кнопка */
+  .hero-actions .hero-btn:nth-child(3) {
+    order: 3;
+    flex: 0 0 calc(50% - 7px);
+    max-width: 220px;
   }
 }
 
@@ -425,27 +410,28 @@ body{
     font-size:64px;
   }
 }
+/* MOBILE — ABOUT (FIX CENTER + EQUAL SIDE PADDING) */
+@media (max-width: 1024px){
 
-/* MOBILE — ABOUT (GUARANTEED CENTER) */
-@media (max-width: 900px){
-
-  /* safety net можно оставить, не мешает */
   html, body {
     overflow-x: hidden;
     width: 100%;
   }
 
+  /* одинаковые отступы слева/справа от края экрана */
   .about-section{
-    padding: 64px 24px;
-    display: flex;               /* КЛЮЧ */
-    justify-content: center;     /* КЛЮЧ */
+    padding: 64px 24px;   /* было 64px 0 */
+    display: block;
+    box-sizing: border-box;
   }
 
+  /* контент внутри — без своих боковых паддингов, чтобы не было “двойных” */
   .about-wrap{
-    width: min(100%, 560px);     /* КЛЮЧ: никогда не шире экрана */
-    margin: 0;                   /* flex сам центрирует */
-    padding: 0;                  /* убираем старые боковые */
-    grid-template-columns: 1fr;  /* мобилка */
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0;           /* было 0 24px */
+    grid-template-columns: 1fr;
     gap: 40px;
     box-sizing: border-box;
   }
@@ -459,6 +445,7 @@ body{
     line-height:1.75;
   }
 }
+
 
 /* ===========================
    PROJECTS
@@ -920,5 +907,54 @@ body{
   html, body {
     overflow-x: hidden;
     width: 100%;
+  }
+}
+
+/* =========================
+  Floating WhatsApp CTA (global)
+========================= */
+
+.whatsapp-cta{
+  position: fixed;
+  right: 20px;     /* desktop: справа */
+  bottom: 50px;    /* desktop: снизу */
+  z-index: 9999;
+
+  width: 75px;
+  height: 75px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  overflow: hidden;
+  background: transparent;
+
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.whatsapp-cta:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.whatsapp-cta img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Mobile: по центру по вертикали справа */
+@media (max-width: 520px){
+  .whatsapp-cta{
+    right: 10px;
+    top: 60%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
   }
 }

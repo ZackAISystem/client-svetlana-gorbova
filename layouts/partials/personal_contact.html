@@ -1,4 +1,6 @@
 {{ $c := site.Data.client }}
+{{ $projectName := .Title }}
+{{ $pageUrl := .Permalink }}
 
 <section class="contact-section" id="inquire">
   <div class="contact-wrap">
@@ -6,10 +8,10 @@
 
       <h2 class="contact-title">Inquire Now</h2>
 
-      <!-- FORM (submission disabled for now) -->
-      <form class="contact-form" onsubmit="return false;">
+      <!-- FORM -->
+      <form class="contact-form" id="contactForm">
 
-        <!-- hidden meta (future CRM) -->
+        <!-- hidden meta -->
         <input type="hidden" name="source" value="coccinelite.com">
         <input type="hidden" name="agent" value="{{ $c.name }}">
 
@@ -58,6 +60,42 @@
     </div>
   </div>
 </section>
+
+<!-- FORM → WHATSAPP -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = this.querySelector('[name="name"]').value.trim();
+  const phone = this.querySelector('[name="phone"]').value.trim();
+  const role = this.querySelector('[name="role"]').value;
+  const comments = this.querySelector('[name="comments"]').value.trim();
+
+  const project = "{{ $projectName }}";
+  const pageUrl = "{{ $pageUrl }}";
+
+  const message =
+`New inquiry from main website
+
+Client type: ${role}
+Name: ${name}
+Phone: ${phone}
+
+Project: ${project}
+Page: ${pageUrl}
+
+Comment:
+${comments || "-"}
+
+Please contact the client.`;
+
+  const encoded = encodeURIComponent(message);
+
+  const waLink = "https://wa.me/971558869299?text=" + encoded;
+
+  window.open(waLink, "_blank");
+});
+</script>
 
 <!-- ROLE AUTOSELECT SCRIPT -->
 <script>

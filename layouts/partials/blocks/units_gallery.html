@@ -83,6 +83,15 @@
 {{ if and (eq $cta "") (isset $p "units_cta_text") }}{{ $cta = $p.units_cta_text }}{{ end }}
 {{ if eq $cta "" }}{{ $cta = "Book a consultation" }}{{ end }}
 
+{{/* WhatsApp CTA (dynamic): project name + page link (+ anti-cache) */}}
+{{ $waPhone := "971558869299" }}
+{{ $projectName := "" }}
+{{ if and (isset $p "project_name") $p.project_name }}{{ $projectName = $p.project_name }}{{ end }}
+{{ if and (eq $projectName "") (ne $page.Title "") }}{{ $projectName = $page.Title }}{{ end }}
+{{ if eq $projectName "" }}{{ $projectName = "this project" }}{{ end }}
+{{ $waText := printf "Hello, I am interested in %s. %s Please contact me." $projectName $page.Permalink }}
+{{ $waLink := printf "https://wa.me/%s?text=%s&t=%d" $waPhone ($waText | urlquery) now.Unix }}
+
 {{ if gt (len $imgs) 0 }}
 <section class="zf-units-gallery {{ $scope }}" id="units" data-units-gallery data-units-scope="{{ $scope }}">
   <div class="zf-units-gallery__header">
@@ -116,7 +125,7 @@
         <span class="zf-units-gallery__stat">{{ $area }}</span>
       </div>
 
-      <button class="zf-units-gallery__cta" type="button">{{ $cta }}</button>
+      <a class="zf-units-gallery__cta" href="{{ $waLink }}" target="_blank" rel="noopener">{{ $cta }}</a>
     </div>
   </div>
 </section>

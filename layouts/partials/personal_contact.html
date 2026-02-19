@@ -1,6 +1,5 @@
 {{ $c := site.Data.client }}
 {{ $projectName := .Title }}
-{{ $pageUrl := .Permalink }}
 
 <section class="contact-section" id="inquire">
   <div class="contact-wrap">
@@ -71,8 +70,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   const role = this.querySelector('[name="role"]').value;
   const comments = this.querySelector('[name="comments"]').value.trim();
 
-  const project = "{{ $projectName }}";
-  const pageUrl = "{{ $pageUrl }}";
+  // безопасно пробрасываем заголовок страницы (не ломается от кавычек)
+  const project = {{ $projectName | jsonify }};
+
+  // ВАЖНО: реальный URL из браузера (в проде будет coccinelite.com)
+  const pageUrl = window.location.href;
 
   const message =
 `New inquiry from main website
@@ -91,7 +93,9 @@ Please contact the client.`;
 
   const encoded = encodeURIComponent(message);
 
-  const waLink = "https://wa.me/971558869299?text=" + encoded;
+  // номер берём из client data, чтобы не хардкодить
+  const waBase = "{{ $c.whatsapp_link }}"; // например: https://wa.me/971558869299
+  const waLink = waBase + "?text=" + encoded;
 
   window.open(waLink, "_blank");
 });

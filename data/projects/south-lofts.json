@@ -1,0 +1,72 @@
+{
+  "project_name": "South Lofts",
+
+  "hero_image": "/images/projects/south-lofts/hero.jpg",
+  "intro_image": "/images/projects/south-lofts/intro.jpg",
+
+  "qr_image": "/images/qr/south-lofts.png",
+
+  "hero_cta_text": "Learn More",
+  "hero_fact_1_label": "Delivery Date",
+  "hero_fact_1_value": "Q2 2028",
+  "hero_fact_2_label": "Price from",
+  "hero_fact_2_value": "AED 419,200",
+
+  "project_info_title": "Elevated co-living in Dubai South",
+  "project_info_text": "South Lofts introduces a contemporary co-living concept designed for modern Dubai. Created for founders, creatives, professionals and investors, it brings together living, working and unwinding in one connected residential address.\n\nPositioned in Dubai South, the project combines compact smart layouts, lifestyle-driven amenities and thoughtfully designed shared spaces that make everyday life feel more flexible, social and efficient.",
+  "project_info_cta_text": "Request Details",
+
+  "amenities_title": "Infrastructure and lifestyle amenities of the residential complex",
+  "amenities_1": "/images/projects/south-lofts/amenities_1.jpg",
+  "amenities_1_label": "Pawscape & The Greens",
+  "amenities_2": "/images/projects/south-lofts/amenities_2.jpg",
+  "amenities_2_label": "Flow",
+  "amenities_3": "/images/projects/south-lofts/amenities_3.jpg",
+  "amenities_3_label": "The Gorizon",
+
+  "gallery_1": "/images/projects/south-lofts/gallery_1.jpg",
+  "gallery_2": "/images/projects/south-lofts/gallery_2.jpg",
+  "gallery_3": "/images/projects/south-lofts/gallery_3.jpg",
+
+  "project_summary_title": "Contemporary living in Dubai South",
+  "project_summary_subtitle": "Smart layouts, connected spaces, elevated co-living",
+
+  "summary_delivery_value": "Q2 2028",
+  "summary_delivery_label": "Delivery Date",
+  "summary_developer_value": "Premier Choice International Real Estate Developers presented by ABRA",
+  "summary_developer_label": "Master Developer",
+  "summary_type_value": "Studios, Flex 1 Bedroom Apartments",
+  "summary_type_label": "Property Type",
+  "summary_price_currency": "AED",
+  "summary_price_value": "419,200",
+  "summary_price_label": "Starting Price",
+
+  "units_gallery_1": "/images/projects/south-lofts/units_gallery_1.jpg",
+  "units_gallery_2": "/images/projects/south-lofts/units_gallery_2.jpg",
+  "units_gallery_3": "/images/projects/south-lofts/units_gallery_3.jpg",
+
+  "units_gallery_title": "Available Units",
+  "units_bed_main": "Studio",
+  "units_bed_options": "Flex 1 Bed",
+  "units_price_from": "AED 419,200",
+  "units_area_from": "From 314 SQFT",
+  "units_cta_text": "Book a consultation",
+
+  "map_title": "Location\nin Dubai",
+  "map_text": "Located in Dubai South, South Lofts benefits from one of the city’s fastest-growing future-facing districts, built around connectivity, innovation and new infrastructure.\n\nResidents enjoy direct access to key routes and destinations including Expo City Dubai, Dubai Marina, Palm Jebel Ali and Al Maktoum International Airport, while living in a more open and emerging part of Dubai with long-term growth potential.",
+  "map_address": "Dubai South, Dubai",
+  "map_lat": 24.8700865,
+  "map_lng": 55.0386333,
+
+  "final_image": "/images/projects/south-lofts/final.jpg",
+
+  "contact_form_title": "Looking for more?",
+  "contact_form_phone_label": "Phone number",
+  "contact_form_cta_text": "Enquire Now",
+
+  "footer_project_name": "South Lofts",
+  "footer_phone": "+971 55 886 9299",
+  "footer_cta_text": "Contact us",
+  "footer_powered_text": "Powered by Zack AI",
+  "footer_tagline": "Elevated co-living in Dubai South"
+}

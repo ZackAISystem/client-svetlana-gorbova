@@ -1,0 +1,72 @@
+{
+  "project_name": "Sky Harmony",
+
+  "hero_image": "/images/projects/sky-harmony/hero.jpg",
+  "intro_image": "/images/projects/sky-harmony/intro.jpg",
+
+  "qr_image": "/images/qr/sky-harmony.png",
+
+  "hero_cta_text": "Request Details",
+  "hero_fact_1_label": "Delivery Date",
+  "hero_fact_1_value": "Q1 2029",
+  "hero_fact_2_label": "Price from",
+  "hero_fact_2_value": "AED 499,000",
+
+  "project_info_title": "Contemporary residences in Jumeirah Village Circle",
+  "project_info_text": "Sky Harmony by Peace Homes introduces a contemporary residential address in Jumeirah Village Circle, combining elegant design, practical layouts and a lifestyle-focused setting within one of Dubai’s most active communities.\n\nThe project brings together studios, one-bedroom residences, two-bedroom apartments and limited penthouses, complemented by curated amenities and a strong investment-oriented positioning in JVC.",
+  "project_info_cta_text": "Learn More",
+
+  "amenities_title": "Infrastructure and landscaping of the residential complex",
+  "amenities_1": "/images/projects/sky-harmony/amenities_1.jpg",
+  "amenities_1_label": "Roof Top Gym",
+  "amenities_2": "/images/projects/sky-harmony/amenities_2.jpg",
+  "amenities_2_label": "Relaxing Swimming Pool",
+  "amenities_3": "/images/projects/sky-harmony/amenities_3.jpg",
+  "amenities_3_label": "Kids Play Area",
+
+  "gallery_1": "/images/projects/sky-harmony/gallery_1.jpg",
+  "gallery_2": "/images/projects/sky-harmony/gallery_2.jpg",
+  "gallery_3": "/images/projects/sky-harmony/gallery_3.jpg",
+
+  "project_summary_title": "Smart investment living in JVC",
+  "project_summary_subtitle": "Design-led residences with lifestyle amenities and strong investor appeal",
+
+  "summary_delivery_label": "Delivery Date",
+  "summary_delivery_value": "Q1 2029",
+  "summary_developer_label": "Master Developer",
+  "summary_developer_value": "Peace Homes presented by Svetlana Gorbova",
+  "summary_type_label": "Property Type",
+  "summary_type_value": "Studios, 1/2 Bed Apartments, 2 Bed Penthouses",
+  "summary_price_label": "Starting Price",
+  "summary_price_currency": "AED",
+  "summary_price_value": "499,000",
+
+  "units_gallery_1": "/images/projects/sky-harmony/units_gallery_1.jpg",
+  "units_gallery_2": "/images/projects/sky-harmony/units_gallery_2.jpg",
+  "units_gallery_3": "/images/projects/sky-harmony/units_gallery_3.jpg",
+
+  "units_gallery_title": "Available Units",
+  "units_bed_main": "Studio",
+  "units_bed_options": "1|2 Bed|2 Bed Penthouse",
+  "units_price_from": "AED 499,000",
+  "units_area_from": "From 400 SQFT",
+  "units_cta_text": "Book a consultation",
+
+  "map_title": "Location\nin Dubai",
+  "map_text": "Located in Jumeirah Village Circle, Sky Harmony enjoys a central Dubai address with quick access to major highways and key destinations across the city.\n\nResidents benefit from proximity to Dubai Marina, Palm Jumeirah, Downtown Dubai, Dubai Mall, airports and a growing residential environment shaped by parks, schools, retail and everyday convenience.",
+  "map_address": "Jumeirah Village Circle, Dubai",
+  "map_lat": 25.056823,
+  "map_lng": 55.213847,
+
+  "final_image": "/images/projects/sky-harmony/final.jpg",
+
+  "contact_form_title": "Looking for more?",
+  "contact_form_phone_label": "Phone number",
+  "contact_form_cta_text": "Enquire Now",
+
+  "footer_project_name": "Sky Harmony",
+  "footer_phone": "+971 55 886 9299",
+  "footer_cta_text": "Contact us",
+  "footer_powered_text": "Powered by Zack AI",
+  "footer_tagline": "Contemporary residences in JVC"
+}
